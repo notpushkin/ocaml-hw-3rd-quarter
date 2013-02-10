@@ -1,4 +1,4 @@
-ocaml-hw-3rd-quarter
-====================
+Homework repo, 3rd quarter
+==========================
 
-For the future homework :)
+Now learning anything about grammars and trying to parse some of them in pure OCaml.
