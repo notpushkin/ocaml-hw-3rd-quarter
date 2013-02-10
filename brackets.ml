@@ -8,7 +8,7 @@ let parse str_ =
   let rec parse_s i =
     match str.[i] with
       | '[' ->
-        let (j1, k1) = parse_s (i + 1) in
+        let (j1, k1) = (parse_s (i + 1)) in
           if str.[j1] != ']' then
             failwith "parse_s [ error"
           else
@@ -16,14 +16,28 @@ let parse str_ =
               (j2+1, [Square k1] @ k2)
 
       | '(' ->
-        let (j1, k1) = parse_s (i + 1) in
+        let (j1, k1) = (parse_s (i + 1)) in
           if str.[j1] != ')' then
             failwith "parse_s ( error"
           else
             let (j2, k2) = parse_s (j1 + 1) in
               (j2+1, [Round k1] @ k2)
 
-      | _ -> (i+1, [])
+      | _ -> (i, [])
 
   in
-    parse_s 0;;
+    snd (parse_s 0);;
+
+(* DEBUG *)
+
+let print_list f lst =
+  print_string "[";
+  List.iter (fun x -> (f x; print_string "; ")) lst;
+  print_string "]";;
+
+let rec print_tree t =
+  match t with
+    | Round l ->  print_string "Rnd"; print_list (print_tree) l
+    | Square l -> print_string "Sqr"; print_list (print_tree) l;;
+
+print_list (print_tree) (parse "([])");
