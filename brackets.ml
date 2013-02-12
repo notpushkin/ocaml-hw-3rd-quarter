@@ -1,3 +1,5 @@
+(* brackets.ml * WTFPL2 * by Ale110 *)
+
 type tree = 
   | Round of tree list
   | Square of tree list;;
