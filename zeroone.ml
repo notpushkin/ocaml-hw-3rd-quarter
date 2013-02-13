@@ -37,5 +37,3 @@ let parse str_ =
       | _ -> fail_parse i str.[i]
   in
     parse_s 0;;
-
-     
