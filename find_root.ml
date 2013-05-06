@@ -1,3 +1,5 @@
+(* find_root.ml * Ale110 * WTFPL2 *)
+
 let find_root a1 b1 a2 b2 =
   if a1=0 && a2=0 then 
     if b1<=0 && b2<=0 then
